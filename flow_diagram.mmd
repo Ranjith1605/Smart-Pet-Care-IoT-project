@@ -1,0 +1,56 @@
+flowchart TD
+    Start([Start: Smart Pet Care IoT System]) --> Init[Initialize System]
+    Init --> Sensors{Read Sensors}
+    
+    Sensors --> TempSensor[Temperature Sensor]
+    Sensors --> MotionSensor[Motion/Activity Sensor]
+    Sensors --> TimeSensor[Time/Schedule Sensor]
+    
+    TempSensor --> TempCheck{Temperature OK?}
+    TempCheck -->|Yes| TempNormal[Normal Temperature]
+    TempCheck -->|No - Too Hot/Cold| TempAlert[Send Temperature Alert to App]
+    
+    MotionSensor --> ActivityCheck{Activity Detected?}
+    ActivityCheck -->|Yes| ActivityNormal[Pet is Active]
+    ActivityCheck -->|No - Inactive| ActivityAlert[Send Low Activity Alert to App]
+    
+    TimeSensor --> FeedingCheck{Feeding Time?}
+    FeedingCheck -->|Yes| DispenseFood[Activate Servo Motor]
+    FeedingCheck -->|No| WaitFeed[Wait for Feeding Time]
+    
+    DispenseFood --> FoodDispensed[Food Dispensed]
+    FoodDispensed --> FeedNotify[Send Feeding Notification to App]
+    
+    TempAlert --> UpdateApp[Update Thunkable Dashboard]
+    ActivityAlert --> UpdateApp
+    FeedNotify --> UpdateApp
+    TempNormal --> UpdateApp
+    ActivityNormal --> UpdateApp
+    WaitFeed --> UpdateApp
+    
+    UpdateApp --> DataDisplay[Display Real-Time Data on App]
+    DataDisplay --> UserAction{User Action Required?}
+    
+    UserAction -->|Yes| ManualControl[Process Manual Commands from App]
+    UserAction -->|No| AutoMode[Continue Automatic Mode]
+    
+    ManualControl --> FeedCommand{Manual Feed Command?}
+    FeedCommand -->|Yes| ManualDispense[Manually Dispense Food]
+    FeedCommand -->|No| OtherCommand[Process Other Commands]
+    
+    ManualDispense --> FoodDispensed
+    OtherCommand --> UpdateApp
+    
+    AutoMode --> Loop{Continue Monitoring?}
+    Loop -->|Yes| Sensors
+    Loop -->|No| End([End])
+    
+    style Start fill:#90EE90
+    style End fill:#FFB6C1
+    style TempAlert fill:#FF6B6B
+    style ActivityAlert fill:#FF6B6B
+    style FeedNotify fill:#87CEEB
+    style DispenseFood fill:#FFD700
+    style ManualDispense fill:#FFD700
+    style UpdateApp fill:#DDA0DD
+    style DataDisplay fill:#DDA0DD
