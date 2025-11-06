@@ -1,0 +1,41 @@
+graph TD
+    A[Start: Pet Care System Active] --> B[Temperature Sensor Reads Environment]
+    A --> C[Motion Sensor Detects Pet Activity]
+    A --> D[Food Level Sensor Monitors Bowl]
+    
+    B --> E{Temperature Check}
+    E -->|Too Hot >30°C| F[Activate Cooling Fan]
+    E -->|Too Cold <15°C| G[Activate Heater]
+    E -->|Normal 15-30°C| H[No Action Needed]
+    
+    C --> I{Activity Detection}
+    I -->|Motion Detected| J[Log Activity Time]
+    I -->|No Motion >2 hours| K[Send Alert to Owner]
+    
+    D --> L{Food Level Check}
+    L -->|Low <20%| M[Activate Food Dispenser]
+    L -->|Normal >20%| N[Monitor Continuously]
+    
+    F --> O[Send Temperature Alert to Dashboard]
+    G --> O
+    K --> O
+    M --> O
+    
+    J --> P[Update Activity Log on Dashboard]
+    N --> Q[Update Food Status on Dashboard]
+    
+    O --> R[Micro:bit Processes Data]
+    P --> R
+    Q --> R
+    
+    R --> S[Transmit Data to Thunkable App]
+    S --> T[Display Real-time Status on Mobile Dashboard]
+    
+    T --> U{Owner Action Required?}
+    U -->|Yes| V[Owner Receives Push Notification]
+    U -->|No| W[Continue Monitoring]
+    
+    V --> X[Owner Views App Dashboard]
+    W --> A
+    X --> Y[Owner Can Manually Override Settings]
+    Y --> A
