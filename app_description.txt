@@ -1,0 +1,52 @@
+Smart Pet Care - Thunkable Mobile App Description
+
+Overview:
+The Smart Pet Care mobile application is built using Thunkable to provide pet owners with real-time monitoring and control of their pet's environment and wellbeing.
+
+Key Features:
+
+1. Real-Time Dashboard
+   - Live temperature readings with visual gauge (15°C - 35°C range)
+   - Motion activity indicator showing last activity timestamp
+   - Food level percentage with visual indicator
+   - Status indicators for all connected sensors
+
+2. Automated Alerts & Notifications
+   - Push notifications when temperature exceeds safe range
+   - Alerts when pet shows no activity for extended periods (>2 hours)
+   - Low food level warnings when bowl drops below 20%
+   - System status alerts for sensor connectivity issues
+
+3. Manual Controls
+   - Emergency food dispense button
+   - Manual temperature control override
+   - Activity log viewer with historical data
+   - Settings panel for customizing alert thresholds
+
+4. Data Visualization
+   - 24-hour temperature trend graph
+   - Daily activity pattern chart
+   - Weekly food consumption statistics
+   - Historical data export functionality
+
+5. Connectivity
+   - Bluetooth connection to Micro:bit controller
+   - Cloud data synchronization for multi-device access
+   - Offline mode with local data caching
+   - Automatic reconnection on signal loss
+
+6. User Interface Design
+   - Clean, intuitive navigation with tab-based layout
+   - Color-coded status indicators (green/yellow/red)
+   - Large, touch-friendly control buttons
+   - Dark mode support for nighttime use
+
+Technical Implementation:
+- Built using Thunkable's drag-and-drop interface
+- Firebase integration for cloud data storage
+- Web API component for Micro:bit communication
+- Local database for offline data persistence
+- Custom timer components for real-time updates
+
+Target Users:
+Pet owners who want peace of mind when away from home, ensuring their pets are comfortable, fed, and safe through automated monitoring and intelligent alerts.
