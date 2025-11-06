@@ -1,0 +1,95 @@
+# Thunkable Dashboard Description - Smart Pet Care IoT App
+
+## Overview
+The Smart Pet Care IoT mobile app is built using Thunkable and serves as the primary interface for pet owners to monitor and control their Smart Pet Care system remotely.
+
+## Dashboard Components
+
+### 1. Real-Time Monitoring Screen
+**Temperature Display:**
+- Shows current ambient temperature where the pet is located
+- Color-coded indicators: Green (Normal), Orange (Warning), Red (Critical)
+- Updates every 30 seconds via Bluetooth connection to Micro:bit
+
+**Activity Monitor:**
+- Displays pet activity status (Active/Inactive)
+- Movement detection count over the last hour
+- Activity graph showing trends over the day
+
+**Feeding Status:**
+- Last feeding time and date
+- Next scheduled feeding time
+- Amount of food remaining in dispenser (estimated)
+
+### 2. Control Panel
+**Manual Feed Button:**
+- Large, prominent button to manually dispense food
+- Confirmation dialog to prevent accidental presses
+- Sends command to Micro:bit via Bluetooth to activate servo motor
+
+**Schedule Settings:**
+- Time picker for setting up to 4 automatic feeding times per day
+- Portion size selector (Small, Medium, Large)
+- Enable/Disable automatic feeding mode
+
+**Temperature Alerts:**
+- Toggle to enable/disable temperature notifications
+- Set custom temperature thresholds (Min/Max)
+- Notification sound and vibration settings
+
+### 3. Notification Center
+**Alert Types:**
+- Temperature warnings when environment is too hot or cold
+- Low activity alerts when pet hasn't moved for extended period
+- Feeding confirmations when food is dispensed
+- Connection status (Micro:bit connected/disconnected)
+
+**Alert History:**
+- Log of all alerts for the past 7 days
+- Timestamp and alert type for each notification
+- Export functionality to email reports
+
+### 4. Settings Screen
+**Bluetooth Configuration:**
+- Pair/Unpair Micro:bit device
+- Connection status indicator
+- Auto-reconnect toggle
+
+**User Preferences:**
+- Pet name and photo
+- Notification preferences
+- Theme selection (Light/Dark mode)
+- Language selection
+
+**System Information:**
+- App version
+- Micro:bit firmware version
+- Last sync timestamp
+- Help and support documentation
+
+## Data Communication
+The app communicates with the Micro:bit controller using Bluetooth Low Energy (BLE):
+- **Receiving Data:** Temperature readings, motion sensor status, feeding events
+- **Sending Commands:** Manual feed commands, schedule updates, system configuration
+- **Data Format:** JSON-like structured messages with error checking
+
+## Technical Implementation Notes
+- Built with Thunkable's drag-and-drop interface
+- Uses Web API components for data logging (optional cloud storage)
+- Bluetooth component for Micro:bit communication
+- Local storage for offline functionality
+- Push notification service for alerts
+
+## User Experience Features
+- Simple, intuitive interface suitable for all ages
+- Large buttons and clear text for accessibility
+- Responsive design works on phones and tablets
+- Minimal setup required - just pair and go
+- Visual and audio feedback for all actions
+
+## Future Enhancements (Planned)
+- Multi-pet support (manage multiple systems)
+- Integration with smart home platforms
+- Video streaming capability
+- Health tracking analytics with AI insights
+- Social features to share pet updates
